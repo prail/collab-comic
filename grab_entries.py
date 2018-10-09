@@ -3,11 +3,15 @@ import os, io, poplib
 from email import parser
 from PIL import Image
 #config file for storing credentials
-import config
-#check for unconfigured username or password
-if config.USERNAME == "" or config.PASSWORD == "":
-    print("Uh Oh, you should probably configure the POP username and password.")
-    exit(1)
+try:
+    import config
+    #check for unconfigured username or password
+    if "" in (config.USERNAME,config.PASSWORD):
+        print("Uh Oh, you should probably configure the POP username and password.")
+        exit(1)
+except ImportError:
+    print("Check and see if you have the config.py file set up correctly.")
+
 
 #The major parts of code involving connection and attachment retrieval were taken
 #from https://stackoverflow.com/a/30784602/ thanks torrange!
