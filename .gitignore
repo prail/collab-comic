@@ -1,0 +1,9 @@
+#vim
+*~
+*.swp
+#config
+config.py
+#python junk
+/__pycache__
+*.pyc
+*.pyo
